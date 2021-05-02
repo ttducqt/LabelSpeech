@@ -29,9 +29,11 @@ class mainWindow(QWidget):
         self.ui = Ui_mainWindow()
         self.ui.setupUi(self)
 
+        #sub-folder inside is OK
         self.sound_dir = '/home/duc/Desktop/ML_WorkSpace/tools/LabelSpeech/test_data/VIVOSDEV01'
         self.list_file = tuple(os.walk(self.sound_dir))[0][2]
 
+        #auto create labels.txt by the path
         self.label_path = 'test_data/labels.txt'
         with codecs.open(self.label_path, 'r+', encoding='utf8') as f:
             self.anno_list = [line.replace('\n','').split('\t') for line in f]
